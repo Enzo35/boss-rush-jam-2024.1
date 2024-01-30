@@ -1,0 +1,413 @@
+[gd_scene load_steps=14 format=3 uid="uid://4drqpt8wkfjm"]
+
+[ext_resource type="PackedScene" uid="uid://bksl1f85ncaib" path="res://tests/enemy.tscn" id="1_67gwe"]
+[ext_resource type="Script" path="res://tests/2dbattle.gd" id="1_hqa5e"]
+[ext_resource type="Script" path="res://tests/p.gd" id="2_umtd3"]
+[ext_resource type="Texture2D" uid="uid://bcl4l6do67m46" path="res://assets/hud/BG1.png" id="2_vrkjn"]
+[ext_resource type="Script" path="res://tests/attackButton.gd" id="3_ihd3t"]
+[ext_resource type="Texture2D" uid="uid://ci1ibp7ganpph" path="res://assets/props/emerald_katar.png" id="4_of0a8"]
+[ext_resource type="Script" path="res://tests/WeaponTexture.gd" id="5_phr5o"]
+[ext_resource type="Texture2D" uid="uid://cv7fp1l7pwfmr" path="res://assets/props/halberd.png" id="5_xdcxk"]
+[ext_resource type="Texture2D" uid="uid://cmkfekcg4ukkf" path="res://assets/props/mirror_shield.png" id="6_3kmdt"]
+[ext_resource type="Texture2D" uid="uid://cucha02aca8ka" path="res://assets/props/sluggers_gamble_v1.png" id="7_ruv3h"]
+
+[sub_resource type="Animation" id="Animation_8q8yr"]
+resource_name = "left_exchange"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimWeaponTexture1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(526, 981), Vector2(1000, 800), Vector2(1355, 968)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimWeaponTexture1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimWeaponTexture2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(799, 979), Vector2(675, 850), Vector2(526, 981)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimWeaponTexture2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimWeaponTexture3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1090, 973), Vector2(975, 950), Vector2(799, 979)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimWeaponTexture3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimWeaponTexture4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1355, 968), Vector2(1225, 950), Vector2(1090, 973)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimWeaponTexture4:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_cygly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimWeaponTexture1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(526, 981)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimWeaponTexture1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimWeaponTexture2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(799, 979)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimWeaponTexture2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimWeaponTexture3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1090, 973)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimWeaponTexture3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimWeaponTexture4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1355, 968)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimWeaponTexture4:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptkda"]
+_data = {
+"RESET": SubResource("Animation_cygly"),
+"left_exchange": SubResource("Animation_8q8yr")
+}
+
+[node name="2Dbattle" type="Node2D"]
+script = ExtResource("1_hqa5e")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 1980.0
+offset_bottom = 1080.0
+texture = ExtResource("2_vrkjn")
+
+[node name="Party" type="Node" parent="."]
+
+[node name="p1" type="ColorRect" parent="Party"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -550.0
+offset_top = -100.0
+offset_right = -350.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.811765, 0.12549, 0, 1)
+script = ExtResource("2_umtd3")
+
+[node name="p1Button" type="Button" parent="Party/p1"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "fight
+"
+script = ExtResource("3_ihd3t")
+
+[node name="p2" type="ColorRect" parent="Party"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -103.0
+offset_right = -88.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0.607843, 0.607843, 1)
+script = ExtResource("2_umtd3")
+
+[node name="p2Button" type="Button" parent="Party/p2"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "fight
+"
+
+[node name="p3" type="ColorRect" parent="Party"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -112.0
+offset_right = 212.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.121569, 0.74902, 0.482353, 1)
+script = ExtResource("2_umtd3")
+
+[node name="p3Button" type="Button" parent="Party/p3"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "fight
+"
+
+[node name="p4" type="ColorRect" parent="Party"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 269.0
+offset_top = -112.0
+offset_right = 469.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.996078, 0.952941, 0.301961, 1)
+script = ExtResource("2_umtd3")
+
+[node name="p4Button" type="Button" parent="Party/p4"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "fight
+"
+
+[node name="Weapons" type="Node" parent="."]
+
+[node name="WeaponTexture1" type="TextureRect" parent="Weapons"]
+visible = false
+offset_left = 526.0
+offset_top = 981.0
+offset_right = 1550.0
+offset_bottom = 2005.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_of0a8")
+script = ExtResource("5_phr5o")
+
+[node name="WeaponTexture2" type="TextureRect" parent="Weapons"]
+visible = false
+offset_left = 799.0
+offset_top = 979.0
+offset_right = 1823.0
+offset_bottom = 2003.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_xdcxk")
+script = ExtResource("5_phr5o")
+
+[node name="WeaponTexture3" type="TextureRect" parent="Weapons"]
+visible = false
+offset_left = 1090.0
+offset_top = 973.0
+offset_right = 2114.0
+offset_bottom = 1997.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_3kmdt")
+script = ExtResource("5_phr5o")
+
+[node name="WeaponTexture4" type="TextureRect" parent="Weapons"]
+visible = false
+offset_left = 1355.0
+offset_top = 968.0
+offset_right = 2379.0
+offset_bottom = 1992.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ruv3h")
+script = ExtResource("5_phr5o")
+
+[node name="AnimWeapons" type="Node" parent="."]
+
+[node name="AnimWeaponTexture1" type="TextureRect" parent="AnimWeapons"]
+offset_left = 526.0
+offset_top = 981.0
+offset_right = 1550.0
+offset_bottom = 2005.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_of0a8")
+
+[node name="AnimWeaponTexture2" type="TextureRect" parent="AnimWeapons"]
+offset_left = 799.0
+offset_top = 979.0
+offset_right = 1823.0
+offset_bottom = 2003.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_xdcxk")
+
+[node name="AnimWeaponTexture3" type="TextureRect" parent="AnimWeapons"]
+offset_left = 1090.0
+offset_top = 973.0
+offset_right = 2114.0
+offset_bottom = 1997.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_3kmdt")
+
+[node name="AnimWeaponTexture4" type="TextureRect" parent="AnimWeapons"]
+offset_left = 1355.0
+offset_top = 968.0
+offset_right = 2379.0
+offset_bottom = 1992.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ruv3h")
+
+[node name="AnimationExchangeWeapon" type="AnimationPlayer" parent="AnimWeapons"]
+libraries = {
+"": SubResource("AnimationLibrary_ptkda")
+}
+
+[node name="enemy" parent="." instance=ExtResource("1_67gwe")]
+position = Vector2(520, 10)
+scale = Vector2(0.8, 0.8)
+
+[node name="exchangeButton" type="Button" parent="."]
+offset_left = 133.0
+offset_top = 848.0
+offset_right = 216.0
+offset_bottom = 879.0
+text = "EXHANGE
+"
+
+[connection signal="pressed" from="Party/p1/p1Button" to="." method="_on_p_1_button_pressed"]
+[connection signal="pressed" from="Party/p2/p2Button" to="." method="_on_p_2_button_pressed"]
+[connection signal="pressed" from="Party/p3/p3Button" to="." method="_on_p_3_button_pressed"]
+[connection signal="pressed" from="Party/p4/p4Button" to="." method="_on_p_4_button_pressed"]
+[connection signal="pressed" from="exchangeButton" to="." method="_on_exchange_button_pressed"]
