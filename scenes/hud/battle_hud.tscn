@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dohpbe784h00c"]
+
+[ext_resource type="PackedScene" uid="uid://bab47ewli47iq" path="res://scenes/hud/battle_commands.tscn" id="1_ve8bg"]
+[ext_resource type="PackedScene" uid="uid://4w8jmnvp6xq5" path="res://scenes/hud/player_party_hud.tscn" id="2_6kh1e"]
+
+[node name="BattleHud" type="CanvasLayer"]
+
+[node name="BattleCommands" parent="." instance=ExtResource("1_ve8bg")]
+
+[node name="PlayerPartyHUD" parent="." instance=ExtResource("2_6kh1e")]

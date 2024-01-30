@@ -6,4 +6,4 @@ func curr_weapon():
 
 
 func change_weapon(newWeapon: String):
-	texture.resource_path = newWeapon
+	texture = ResourceLoader.load(newWeapon)

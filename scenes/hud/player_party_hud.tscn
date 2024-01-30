@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://4w8jmnvp6xq5"]
+
+[ext_resource type="Texture2D" uid="uid://bdkr3n5lqdwqn" path="res://assets/hud/charBlock.png" id="1_2tj0g"]
+
+[node name="PlayerPartyHUD" type="CanvasLayer"]
+
+[node name="Holder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Holder"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = -220.0
+offset_right = 1680.0
+offset_bottom = -20.0
+alignment = 1
+
+[node name="TextureRect1" type="TextureRect" parent="Holder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_2tj0g")
+
+[node name="TextureRect2" type="TextureRect" parent="Holder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_2tj0g")
+
+[node name="TextureRect3" type="TextureRect" parent="Holder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_2tj0g")
+
+[node name="TextureRect4" type="TextureRect" parent="Holder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_2tj0g")

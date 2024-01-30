@@ -6,7 +6,8 @@ extends Node2D
 
 @export var currTurn: int = 0
 
-var weaponsList = ["res://assets/props/emerald_katar.png", "res://assets/props/halberd.png", "res://assets/props/mirror_shield.png", "res://assets/props/sluggers_gamble_v1.png"]
+var weaponsList = ["res://assets/props/emerald_katar.png", "res://assets/props/halberd.png", 
+"res://assets/props/mirror_shield.png", "res://assets/props/sluggers_gamble_v1.png"]
 
 var processTurn = true
 
@@ -44,3 +45,10 @@ func _on_p_4_button_pressed():
 
 func _on_exchange_button_pressed():
 	$AnimWeapons/AnimationExchangeWeapon.play("left_exchange")
+	await %AnimationExchangeWeapon.animation_finished
+	weaponsList.append(weaponsList.pop_front())
+	print(weaponsList)
+	$Weapons/WeaponTexture1.change_weapon(weaponsList[0])
+	$Weapons/WeaponTexture2.change_weapon(weaponsList[1])
+	$Weapons/WeaponTexture3.change_weapon(weaponsList[2])
+	$Weapons/WeaponTexture4.change_weapon(weaponsList[3])

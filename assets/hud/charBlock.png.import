@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpawjnceqf1ve"
-path="res://.godot/imported/emerald_katar.png-3606dd6469dd8a880cd1677c6c34722a.ctex"
+uid="uid://bdkr3n5lqdwqn"
+path="res://.godot/imported/charBlock.png-4eaa7ca860247d59f5371d0338da2f4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/props/emerald_katar.png"
-dest_files=["res://.godot/imported/emerald_katar.png-3606dd6469dd8a880cd1677c6c34722a.ctex"]
+source_file="res://assets/hud/charBlock.png"
+dest_files=["res://.godot/imported/charBlock.png-4eaa7ca860247d59f5371d0338da2f4e.ctex"]
 
 [params]
 
