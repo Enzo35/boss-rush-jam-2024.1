@@ -1,0 +1,115 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc7rnkr1houds"]
+
+[ext_resource type="Script" path="res://scripts/hud/pauseMenu.gd" id="1_m3tku"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_m3tku")
+
+[node name="Holder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGScreen" type="ColorRect" parent="Holder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0627451, 0.0627451, 0.52549)
+
+[node name="ColorRect" type="ColorRect" parent="Holder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -200.0
+offset_right = 133.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.427451, 0.427451, 1)
+
+[node name="BGMenu" type="TextureRect" parent="Holder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BasicMenuHolder" type="Control" parent="Holder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Holder/BasicMenuHolder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -160.0
+offset_right = 100.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="Holder/BasicMenuHolder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings
+"
+
+[node name="QuitButton" type="Button" parent="Holder/BasicMenuHolder"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quit"
+
+[connection signal="pressed" from="Holder/BasicMenuHolder/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Holder/BasicMenuHolder/QuitButton" to="." method="_on_quit_button_pressed"]

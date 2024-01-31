@@ -1,14 +1,18 @@
 extends Control
 
+@onready var set_video = preload("res://scripts/general/setVideo.gd").new()
+@onready var windowDisplayButton = $SettingsMenu/VideoGridContainer/DisplayOptionButton
+@onready var windowResolutionButton = $SettingsMenu/VideoGridContainer/ResolutionOptionButton
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	for i in set_video.WINDOW_DISPLAY_ARRAY:
+		windowDisplayButton.add_item(i)
+		
+	for i in set_video.WINDOW_RESOLUTION_DIC:
+		windowResolutionButton.add_item(i)
+	print(DisplayServer.WINDOW_MODE_WINDOWED)
+	print(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 func _input(event):
@@ -18,3 +22,31 @@ func _input(event):
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()
+
+
+func _on_close_settings_button_pressed():
+	$MainMenu.visible = !$MainMenu.visible
+	$SettingsMenu.visible = !$SettingsMenu.visible
+
+
+func _on_close_credits_button_pressed():
+	$MainMenu.visible = !$MainMenu.visible
+	$CreditsMenu.visible = !$CreditsMenu.visible
+
+
+func _on_settings_button_pressed():
+	$MainMenu.visible = !$MainMenu.visible
+	$SettingsMenu.visible = !$SettingsMenu.visible
+
+
+func _on_credits_button_pressed():
+	$MainMenu.visible = !$MainMenu.visible
+	$CreditsMenu.visible = !$CreditsMenu.visible
+
+
+func _on_display_option_button_item_selected(index):
+	set_video.set_display(set_video.WINDOW_DISPLAY_ARRAY[index])

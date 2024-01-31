@@ -5,11 +5,13 @@
 [ext_resource type="Script" path="res://tests/p.gd" id="2_umtd3"]
 [ext_resource type="Texture2D" uid="uid://bcl4l6do67m46" path="res://assets/hud/BG1.png" id="2_vrkjn"]
 [ext_resource type="Script" path="res://tests/attackButton.gd" id="3_ihd3t"]
-[ext_resource type="Texture2D" uid="uid://ci1ibp7ganpph" path="res://assets/props/emerald_katar.png" id="4_of0a8"]
 [ext_resource type="Script" path="res://tests/WeaponTexture.gd" id="5_phr5o"]
 [ext_resource type="Texture2D" uid="uid://cv7fp1l7pwfmr" path="res://assets/props/halberd.png" id="5_xdcxk"]
 [ext_resource type="Texture2D" uid="uid://cmkfekcg4ukkf" path="res://assets/props/mirror_shield.png" id="6_3kmdt"]
 [ext_resource type="Texture2D" uid="uid://cucha02aca8ka" path="res://assets/props/sluggers_gamble_v1.png" id="7_ruv3h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fq0uf"]
+load_path = "res://.godot/imported/emerald_katar.png-3606dd6469dd8a880cd1677c6c34722a.ctex"
 
 [sub_resource type="Animation" id="Animation_cygly"]
 length = 0.001
@@ -417,7 +419,7 @@ offset_top = 981.0
 offset_right = 1550.0
 offset_bottom = 2005.0
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_of0a8")
+texture = SubResource("CompressedTexture2D_fq0uf")
 script = ExtResource("5_phr5o")
 
 [node name="WeaponTexture2" type="TextureRect" parent="Weapons"]
@@ -456,7 +458,7 @@ offset_top = 981.0
 offset_right = 1550.0
 offset_bottom = 2005.0
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_of0a8")
+texture = SubResource("CompressedTexture2D_fq0uf")
 
 [node name="AnimWeaponTexture2" type="TextureRect" parent="AnimWeapons"]
 visible = false

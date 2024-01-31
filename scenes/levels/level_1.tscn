@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjjt67f1wj6nc"]
+[gd_scene load_steps=5 format=3 uid="uid://cjjt67f1wj6nc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_ceujk"]
 [ext_resource type="Texture2D" uid="uid://bcl4l6do67m46" path="res://assets/hud/BG1.png" id="2_f3fdx"]
+[ext_resource type="PackedScene" uid="uid://dohpbe784h00c" path="res://scenes/hud/battle_hud.tscn" id="3_hltfr"]
+[ext_resource type="PackedScene" uid="uid://dc7rnkr1houds" path="res://scenes/hud/pauseMenu.tscn" id="4_fpoqx"]
 
 [node name="Level_1" type="Control"]
 layout_mode = 3
@@ -20,3 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_f3fdx")
+
+[node name="BattleHud" parent="." instance=ExtResource("3_hltfr")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_fpoqx")]

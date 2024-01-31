@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_6ffj4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,20 +21,279 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.321569, 0.321569, 0.321569, 1)
 
-[node name="StartButton" type="Button" parent="."]
+[node name="MainMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StartButton" type="Button" parent="MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -50.0
+offset_top = -140.0
+offset_right = 50.0
+offset_bottom = -90.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start
 "
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="SettingsButton" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -80.0
+offset_right = 50.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 40.0
+offset_right = 50.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit
+"
+
+[node name="SettingsMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CloseSettingsButton" type="Button" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[node name="VideoLabel" type="Label" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.9999
+offset_top = -135.0
+offset_right = 30.0001
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Video Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoGridContainer" type="GridContainer" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -90.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="DisplayLabel" type="Label" parent="SettingsMenu/VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Display
+"
+
+[node name="DisplayOptionButton" type="OptionButton" parent="SettingsMenu/VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ResolutionLabel" type="Label" parent="SettingsMenu/VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="SettingsMenu/VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AudioLabel" type="Label" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.9999
+offset_right = 31.0001
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Audio Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioGridContainer" type="GridContainer" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 46.5
+offset_right = 100.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="SettingsMenu/AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master
+"
+
+[node name="MasterHSlider" type="HSlider" parent="SettingsMenu/AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 3
+min_value = -80.0
+max_value = 0.0
+step = 0.001
+
+[node name="MusicLabel" type="Label" parent="SettingsMenu/AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+
+[node name="MusicHSlider" type="HSlider" parent="SettingsMenu/AudioGridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = -80.0
+max_value = 0.0
+step = 0.001
+
+[node name="SoundFXLabel" type="Label" parent="SettingsMenu/AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sound FX"
+
+[node name="SoundFXHSlider" type="HSlider" parent="SettingsMenu/AudioGridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = -80.0
+max_value = 0.0
+step = 0.001
+
+[node name="CreditsMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CloseCreditsButton" type="Button" parent="CreditsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[node name="CreditsLabel" type="Label" parent="CreditsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made By:
+CiclosDev - https://ciclosdev.itch.io/
+
+
+Licenses:
+
+This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsMenu/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
+[connection signal="item_selected" from="SettingsMenu/VideoGridContainer/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
+[connection signal="pressed" from="CreditsMenu/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
