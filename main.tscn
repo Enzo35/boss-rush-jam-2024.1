@@ -109,9 +109,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
+offset_left = -25.0
+offset_top = -80.0
+offset_right = 25.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Close"
@@ -257,9 +258,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
+offset_left = -25.0
+offset_top = -80.0
+offset_right = 25.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Close"
@@ -296,4 +298,8 @@ autowrap_mode = 3
 [connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="SettingsMenu/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
 [connection signal="item_selected" from="SettingsMenu/VideoGridContainer/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/VideoGridContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="value_changed" from="SettingsMenu/AudioGridContainer/MasterHSlider" to="." method="_on_master_h_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/AudioGridContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/AudioGridContainer/SoundFXHSlider" to="." method="_on_sound_fxh_slider_value_changed"]
 [connection signal="pressed" from="CreditsMenu/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
