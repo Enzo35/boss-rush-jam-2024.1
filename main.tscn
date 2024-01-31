@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://pvy3bnpyydiq"]
+[gd_scene load_steps=3 format=3 uid="uid://pvy3bnpyydiq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6ffj4"]
+[ext_resource type="PackedScene" uid="uid://l5nu14ame5h3" path="res://scenes/hud/settings_menu.tscn" id="2_dl46i"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -22,7 +23,6 @@ grow_vertical = 2
 color = Color(0.321569, 0.321569, 0.321569, 1)
 
 [node name="MainMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,153 +93,10 @@ grow_vertical = 2
 text = "Quit
 "
 
-[node name="SettingsMenu" type="Control" parent="."]
+[node name="SettingsMenu" parent="." node_paths=PackedStringArray("backNode") instance=ExtResource("2_dl46i")]
+visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="CloseSettingsButton" type="Button" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -80.0
-offset_right = 25.0
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Close"
-
-[node name="VideoLabel" type="Label" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -79.9999
-offset_top = -135.0
-offset_right = 30.0001
-offset_bottom = -112.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-text = "Video Settings"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VideoGridContainer" type="GridContainer" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -90.0
-offset_right = 66.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-
-[node name="DisplayLabel" type="Label" parent="SettingsMenu/VideoGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Display
-"
-
-[node name="DisplayOptionButton" type="OptionButton" parent="SettingsMenu/VideoGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ResolutionLabel" type="Label" parent="SettingsMenu/VideoGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Resolution"
-
-[node name="ResolutionOptionButton" type="OptionButton" parent="SettingsMenu/VideoGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="AudioLabel" type="Label" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.9999
-offset_right = 31.0001
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-text = "Audio Settings"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AudioGridContainer" type="GridContainer" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 46.5
-offset_right = 100.0
-offset_bottom = 123.5
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-
-[node name="MasterLabel" type="Label" parent="SettingsMenu/AudioGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Master
-"
-
-[node name="MasterHSlider" type="HSlider" parent="SettingsMenu/AudioGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 7
-size_flags_vertical = 3
-min_value = -80.0
-max_value = 0.0
-step = 0.001
-
-[node name="MusicLabel" type="Label" parent="SettingsMenu/AudioGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Music"
-
-[node name="MusicHSlider" type="HSlider" parent="SettingsMenu/AudioGridContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-min_value = -80.0
-max_value = 0.0
-step = 0.001
-
-[node name="SoundFXLabel" type="Label" parent="SettingsMenu/AudioGridContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Sound FX"
-
-[node name="SoundFXHSlider" type="HSlider" parent="SettingsMenu/AudioGridContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-min_value = -80.0
-max_value = 0.0
-step = 0.001
+backNode = NodePath("../MainMenu")
 
 [node name="CreditsMenu" type="Control" parent="."]
 visible = false
@@ -296,10 +153,4 @@ autowrap_mode = 3
 [connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="SettingsMenu/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
-[connection signal="item_selected" from="SettingsMenu/VideoGridContainer/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
-[connection signal="item_selected" from="SettingsMenu/VideoGridContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
-[connection signal="value_changed" from="SettingsMenu/AudioGridContainer/MasterHSlider" to="." method="_on_master_h_slider_value_changed"]
-[connection signal="value_changed" from="SettingsMenu/AudioGridContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
-[connection signal="value_changed" from="SettingsMenu/AudioGridContainer/SoundFXHSlider" to="." method="_on_sound_fxh_slider_value_changed"]
 [connection signal="pressed" from="CreditsMenu/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]

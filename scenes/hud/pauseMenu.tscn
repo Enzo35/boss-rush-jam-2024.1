@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc7rnkr1houds"]
+[gd_scene load_steps=3 format=3 uid="uid://dc7rnkr1houds"]
 
 [ext_resource type="Script" path="res://scripts/hud/pauseMenu.gd" id="1_m3tku"]
+[ext_resource type="PackedScene" uid="uid://l5nu14ame5h3" path="res://scenes/hud/settings_menu.tscn" id="2_2xumu"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_m3tku")
@@ -51,7 +52,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BasicMenuHolder" type="Control" parent="Holder"]
+[node name="BasicMenu" type="Control" parent="Holder"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,7 +66,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResumeButton" type="Button" parent="Holder/BasicMenuHolder"]
+[node name="ResumeButton" type="Button" parent="Holder/BasicMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Resume"
 
-[node name="SettingsButton" type="Button" parent="Holder/BasicMenuHolder"]
+[node name="SettingsButton" type="Button" parent="Holder/BasicMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,7 +97,7 @@ grow_vertical = 2
 text = "Settings
 "
 
-[node name="QuitButton" type="Button" parent="Holder/BasicMenuHolder"]
+[node name="QuitButton" type="Button" parent="Holder/BasicMenu"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -111,5 +112,11 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Quit"
 
-[connection signal="pressed" from="Holder/BasicMenuHolder/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Holder/BasicMenuHolder/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="SettingsMenu" parent="Holder" node_paths=PackedStringArray("backNode") instance=ExtResource("2_2xumu")]
+visible = false
+layout_mode = 1
+backNode = NodePath("../BasicMenu")
+
+[connection signal="pressed" from="Holder/BasicMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Holder/BasicMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Holder/BasicMenu/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,164 @@
+[gd_scene load_steps=2 format=3 uid="uid://l5nu14ame5h3"]
+
+[ext_resource type="Script" path="res://scripts/hud/settings_menu.gd" id="1_e5xqi"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5xqi")
+
+[node name="CloseSettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -40.0
+offset_right = 25.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[node name="VideoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.9999
+offset_top = -135.0
+offset_right = 30.0001
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Video Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoGridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -90.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="DisplayLabel" type="Label" parent="VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Display
+"
+
+[node name="DisplayOptionButton" type="OptionButton" parent="VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ResolutionLabel" type="Label" parent="VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="VideoGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AudioLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.9999
+offset_right = 31.0001
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Audio Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioGridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 46.5
+offset_right = 100.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master
+"
+
+[node name="MasterHSlider" type="HSlider" parent="AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 3
+min_value = -80.0
+max_value = 0.0
+step = 0.001
+
+[node name="MusicLabel" type="Label" parent="AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+
+[node name="MusicHSlider" type="HSlider" parent="AudioGridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = -80.0
+max_value = 0.0
+step = 0.001
+
+[node name="SoundFXLabel" type="Label" parent="AudioGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sound FX"
+
+[node name="SoundFXHSlider" type="HSlider" parent="AudioGridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = -80.0
+max_value = 0.0
+step = 0.001
+
+[connection signal="pressed" from="CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
+[connection signal="item_selected" from="VideoGridContainer/DisplayOptionButton" to="." method="_on_display_option_button_item_selected"]
+[connection signal="item_selected" from="VideoGridContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="value_changed" from="AudioGridContainer/MasterHSlider" to="." method="_on_master_h_slider_value_changed"]
+[connection signal="value_changed" from="AudioGridContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="AudioGridContainer/SoundFXHSlider" to="." method="_on_sound_fxh_slider_value_changed"]
