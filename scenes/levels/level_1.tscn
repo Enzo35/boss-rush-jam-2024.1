@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjjt67f1wj6nc"]
+[gd_scene load_steps=6 format=3 uid="uid://ccf70g3rc835w"]
 
-[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_ceujk"]
+[ext_resource type="Script" path="res://scripts/general/battle_settings.gd" id="1_4wksk"]
 [ext_resource type="Texture2D" uid="uid://bcl4l6do67m46" path="res://assets/hud/BG1.png" id="2_f3fdx"]
 [ext_resource type="PackedScene" uid="uid://dohpbe784h00c" path="res://scenes/hud/battle_hud.tscn" id="3_hltfr"]
 [ext_resource type="PackedScene" uid="uid://dc7rnkr1houds" path="res://scenes/hud/pauseMenu.tscn" id="4_fpoqx"]
+[ext_resource type="PackedScene" uid="uid://5i833s4tw7mu" path="res://scenes/characters/deepSeaEnemies/pirateShip.tscn" id="5_vjb5u"]
 
 [node name="Level_1" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ceujk")
+script = ExtResource("1_4wksk")
 
 [node name="BG" type="TextureRect" parent="."]
 layout_mode = 1
@@ -23,6 +24,27 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_f3fdx")
 
-[node name="BattleHud" parent="." instance=ExtResource("3_hltfr")]
+[node name="EnemyHealthLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.0
+offset_top = 85.0
+offset_right = 70.0
+offset_bottom = 108.0
+grow_horizontal = 2
+text = "ENEMY HEALTH: 0/0"
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("5_vjb5u")]
+layout_mode = 1
+targets = NodePath("../BattleHud")
+
+[node name="BattleHud" parent="." node_paths=PackedStringArray("attack_target") instance=ExtResource("3_hltfr")]
+attack_target = NodePath("../Enemy")
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_fpoqx")]
+visible = false
+
+[connection signal="fineshed_turn" from="Enemy" to="." method="_on_enemy_fineshed_turn"]
+[connection signal="finised_turn" from="BattleHud" to="." method="_on_battle_hud_finised_turn"]

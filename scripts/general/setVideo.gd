@@ -1,5 +1,6 @@
 extends Node
 
+
 var WINDOW_RESOLUTION_DIC: Dictionary = {
 	"1980x1080" : Vector2i(1980, 1080),
 	"1600x900" : Vector2i(1600, 900),
@@ -12,6 +13,7 @@ var WINDOW_DISPLAY_ARRAY: Array[String] = [
 	"FullScreen",
 	"Windowed"
 ]
+
 
 func set_resolution(newRes: Vector2i):
 	DisplayServer.window_set_size(newRes)

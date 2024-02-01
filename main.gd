@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	if OS.get_name() != "Windows":
+		$MainMenu/QuitButton.visible = false
+
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):

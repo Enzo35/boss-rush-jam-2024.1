@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://4w8jmnvp6xq5"]
+[gd_scene load_steps=4 format=3 uid="uid://4w8jmnvp6xq5"]
 
+[ext_resource type="Script" path="res://scripts/hud/player_party_hud.gd" id="1_rh08r"]
 [ext_resource type="PackedScene" uid="uid://du2nrgtvwt25y" path="res://scenes/hud/char_block.tscn" id="1_uqjpk"]
+[ext_resource type="Texture2D" uid="uid://dpt18gwh1cgfa" path="res://assets/characters/troupeChar1.png" id="3_aple7"]
 
 [node name="PlayerPartyHUD" type="CanvasLayer"]
+script = ExtResource("1_rh08r")
+redCharTexture = ExtResource("3_aple7")
+greenCharTexture = ExtResource("3_aple7")
+blueCharTexture = ExtResource("3_aple7")
+yellowCharTexture = ExtResource("3_aple7")
 
 [node name="Holder" type="Control" parent="."]
 layout_mode = 3
@@ -21,14 +28,14 @@ offset_right = 1680.0
 offset_bottom = -20.0
 alignment = 1
 
-[node name="charBlock1" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
+[node name="redChar" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
 layout_mode = 2
 
-[node name="charBlock2" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
+[node name="greenChar" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
 layout_mode = 2
 
-[node name="charBlock3" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
+[node name="blueChar" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
 layout_mode = 2
 
-[node name="charBlock4" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
+[node name="yellowChar" parent="Holder/HBoxContainer" instance=ExtResource("1_uqjpk")]
 layout_mode = 2

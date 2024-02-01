@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://5i833s4tw7mu"]
+
+[ext_resource type="Script" path="res://scripts/characters/deepSeaEnemies/pirateShip.gd" id="1_f1osk"]
+[ext_resource type="Texture2D" uid="uid://bvg323inh32rw" path="res://assets/characters/deepSeaBosses/boss_pirateShip.png" id="1_vk3gw"]
+[ext_resource type="Script" path="res://scripts/characters/charComponents.gd" id="2_spve8"]
+
+[node name="PirateShip" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -275.0
+offset_right = 450.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vk3gw")
+script = ExtResource("1_f1osk")
+
+[node name="charComponents" type="Node" parent="."]
+script = ExtResource("2_spve8")
+max_health = 2
+curr_health = 2.0
+attackPower = 30.0
+
+[connection signal="died" from="charComponents" to="." method="_on_char_components_died"]
